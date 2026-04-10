@@ -46,11 +46,11 @@
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
-        <!-- 🔐 SECURITY (optional nhưng nên có) -->
+        <!-- 🔐 SECURITY (optional nhưng nên có)
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+        </dependency> -->
 
         <!-- 🧠 LOMBOK -->
         <dependency>
