@@ -19,3 +19,4 @@
 # Environment & Secrets
 **/*.env
 **/application-local.yml
+**/application.yml
