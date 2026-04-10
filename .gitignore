@@ -1,0 +1,21 @@
+# Java & Spring Boot
+**/target/
+**/*.jar
+**/*.war
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS & Logs
+.DS_Store
+**/logs/
+*.log
+
+# Environment & Secrets
+**/*.env
+**/application-local.yml

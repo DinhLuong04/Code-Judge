@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  oj-mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: oj_db
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  oj-rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"   # Cổng kết nối code
+      - "15672:15672" # Cổng UI quản lý (Admin)
+
+  oj-redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
