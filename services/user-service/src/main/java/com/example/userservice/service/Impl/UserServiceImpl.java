@@ -1,6 +1,9 @@
 package com.example.userservice.service.Impl;
 
+import com.example.userservice.Util.JwtUtil;
+import com.example.userservice.dto.request.LoginRequest;
 import com.example.userservice.dto.request.RegisterRequest;
+import com.example.userservice.dto.response.AuthResponse;
 import com.example.userservice.entity.Role;
 import com.example.userservice.entity.User;
 import com.example.userservice.repository.RoleRepository;
@@ -22,6 +25,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtUtil jwtUtil;
 
     @Override
     @Transactional
@@ -47,5 +51,20 @@ public class UserServiceImpl implements UserService {
                 .roles(roles)
                 .build();
         userRepository.save(newUser);
+    }
+
+    @Override
+    public AuthResponse login(LoginRequest request) {
+        User user = userRepository.findByUsername(request.getUsername())
+                .orElseThrow(() -> new RuntimeException("Tên đăng nhập hoặc mật khẩu không đúng!"));
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new RuntimeException("Tên đăng nhập hoặc mật khẩu không đúng!");
+        }
+        String token = jwtUtil.generateToken(user.getUsername());
+
+        return AuthResponse.builder()
+                .token(token)
+                .message("Đăng nhập thành công!")
+                .build();
     }
 }
