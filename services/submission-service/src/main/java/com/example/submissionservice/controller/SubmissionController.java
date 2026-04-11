@@ -12,7 +12,7 @@ public class SubmissionController {
     private final RabbitTemplate rabbitTemplate;
 
     @PostMapping
-    public String submitCode(@RequestParam String username, @RequestParam String code) {
+    public String submitCode(@RequestParam String username, @RequestBody String code) {
         
         // 1. Giả lập việc tạo ra một thông báo nộp bài
         String message = "Thí sinh [" + username + "] vừa nộp đoạn code: " + code;
