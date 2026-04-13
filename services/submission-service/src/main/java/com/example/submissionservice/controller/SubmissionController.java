@@ -4,6 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.submissionservice.entity.Submission;
+import com.example.submissionservice.service.SubmissionService;
+
 @RestController
 @RequestMapping("/api/submissions")
 @RequiredArgsConstructor
@@ -11,16 +14,18 @@ public class SubmissionController {
 
     private final RabbitTemplate rabbitTemplate;
 
+    private final SubmissionService submissionService;
+
     @PostMapping
-    public String submitCode(@RequestParam String username, @RequestBody String code) {
-        
-        // 1. Giả lập việc tạo ra một thông báo nộp bài
-        String message = "Thí sinh [" + username + "] vừa nộp đoạn code: " + code;
+    public Submission submitCode(@RequestParam String username, @RequestBody String code) {
+        // Gọi service xử lý: Lưu DB -> Gửi RabbitMQ
+        return submissionService.createSubmission(username, code);
+    }
 
-        // 2. NÉM THẲNG LÊN CLOUD (Vào đúng cái hàng đợi submission.queue)
-        rabbitTemplate.convertAndSend("submission.queue", message);
-
-        // 3. Trả về ngay lập tức cho người dùng (Không bắt họ chờ chấm điểm)
-        return "Hệ thống đã nhận bài của " + username + ". Vui lòng đi uống nước, lát quay lại xem điểm!";
+    // Thêm API này để bạn có thể kiểm tra kết quả sau khi chấm
+    @GetMapping("/{id}")
+    public Submission getSubmission(@PathVariable Long id) {
+        return submissionService.getSubmissionById(id); 
+        // (Bạn nhớ thêm hàm getById này vào SubmissionService nhé)
     }
 }
