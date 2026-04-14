@@ -1,0 +1,61 @@
+[
+  {
+    "title": "[Mảng 1 chiều cơ bản]. Bài 1. Đếm chẵn lẻ, tổng chẵn lẻ",
+    "difficulty": "EASY",
+    "description": "Cho mảng số nguyên A[] gồm N phần tử, nhiệm vụ của bạn là đếm xem trong mảng có bao nhiêu số chẵn, bao nhiêu số lẻ, tổng các phần tử là số chẵn, tổng các phần tử là số lẻ.\n\n**Input Format**\nDòng đầu tiên là số nguyên dương N; Dòng thứ 2 gồm N số nguyên viết cách nhau một vài khoảng trắng.\n\n**Constraints**\n1 <= N <= 1000; -10^3 <= A[i] <= 10^3;\n\n**Output Format**\nDòng đầu tiên in ra số lượng số chắn. Dòng thứ 2 in ra số lượng số lẻ. Dòng thứ 3 in ra tổng các số chẵn. Dòng thứ 4 in ra tổng các số lẻ.",
+    "testcases": [
+      {
+        "input": "6\n-711 327 372 779 451 -864\n",
+        "expectedOutput": "2\n4\n-492\n846\n"
+      }
+    ]
+  },
+  {
+    "title": "[Mảng 1 chiều cơ bản]. Bài 2. Trung bình cộng nguyên tố",
+    "difficulty": "EASY",
+    "description": "Cho mảng số nguyên A[] gồm N phần tử, nhiệm vụ của bạn là tính trung bình cộng của các số là số nguyên tố trong dãy. Dữ liệu đảm bảo có ít nhất 1 phần tử là số nguyên tổ trong dãy.\n\n**Input Format**\nDòng đầu tiên là số nguyên dương N; Dòng thứ 2 gồm N số nguyên viết cách nhau.\n\n**Constraints**\n1 <= N <= 1000; -10^3 <= A[i] <= 10^3;\n\n**Output Format**\nIn ra đáp án của bài toán lấy 3 số sau dấu phẩy.",
+    "testcases": [
+      {
+        "input": "5\n-911 234 151 347 231\n",
+        "expectedOutput": "249.000\n"
+      },
+      {
+        "input": "3\n1 2 5\n",
+        "expectedOutput": "3.500\n"
+      }
+    ]
+  },
+  {
+    "title": "[Mảng 1 chiều cơ bản]. Bài 3. Số nhỏ nhất",
+    "difficulty": "EASY",
+    "description": "Cho mảng số nguyên A[] gồm N phần tử, hãy đếm xem trong mảng của bạn có bao nhiêu số có cùng giá trị nhỏ nhất. Ví dụ mảng A={1,2,1,3,5} thì số nhỏ nhất là 1 xuất hiện 2 lần.\n\n**Input Format**\nDòng đầu tiên là số nguyên dương N; Dòng thứ 2 gồm N số nguyên.\n\n**Constraints**\n1 <= N <= 1000; -10^3 <= A[i] <= 10^3\n\n**Output Format**\nIn ra đáp án của bài toán.",
+    "testcases": [
+      {
+        "input": "5\n-854 600 222 472 207\n",
+        "expectedOutput": "1\n"
+      }
+    ]
+  },
+  {
+    "title": "[Mảng 1 chiều cơ bản]. Bài 4. Lớn hơn, nhỏ hơn",
+    "difficulty": "EASY",
+    "description": "Cho mảng số nguyên A[] gồm N phần tử và số nguyên X, hãy đếm xem trong mảng có bao nhiêu số lớn hơn X và bao nhiêu số nhỏ hơn X.\n\n**Input Format**\nDòng đầu tiên là số nguyên dương N; Dòng thứ 2 gồm N số nguyên; Dòng thứ 3 là số nguyên X.\n\n**Constraints**\n1 <= N <= 1000; -10^3 <= A[i], X <= 10^3\n\n**Output Format**\nDòng 1 in ra các số nhỏ hơn X, dòng 2 in ra các số lớn hơn X.",
+    "testcases": [
+      {
+        "input": "5\n-798 183 434 850 555\n135\n",
+        "expectedOutput": "1\n4\n"
+      }
+    ]
+  },
+  {
+    "title": "[Mảng 1 chiều cơ bản]. Bài 5. In phần tử",
+    "difficulty": "EASY",
+    "description": "Cho mảng số nguyên A[] gồm N phần tử, nhiệm vụ của bạn là in ra các phần tử là số chẵn ở chỉ số chẵn, nếu mảng không tồn tại phần tử như vậy thì in ra \"NONE\".\n\n**Input Format**\nDòng đầu tiên là số nguyên dương N; Dòng thứ 2 gồm N số nguyên.\n\n**Constraints**\n1 <= N <= 1000; -10^3 <= A[i] <= 10^3;\n\n**Output Format**\nIn ra các số cách nhau một khoảng trắng hoặc in ra NONE.",
+    "testcases": [
+      {
+        "input": "5\n-971 107 458 222 200\n",
+        "expectedOutput": "458 200\n"
+      }
+    ]
+  }
+]
