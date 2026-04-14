@@ -8,10 +8,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="submission-service" />
         <module name="judge-service" />
-        <module name="problem-service" />
-        <module name="user-service" />
+        <module name="eureka-server" />
       </profile>
-      <profile name="Annotation profile for gateway" enabled="true">
+      <profile name="Annotation profile for problem-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -19,11 +18,22 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
         <module name="gateway" />
+        <module name="problem-service" />
+      </profile>
+      <profile name="Annotation profile for UserService" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.32/lombok-1.18.32.jar" />
+        </processorPath>
+        <module name="user-service" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eureka-server" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="judge-service" options="-parameters" />
       <module name="problem-service" options="-parameters" />
