@@ -12,20 +12,20 @@ import com.example.submissionservice.service.SubmissionService;
 @RequiredArgsConstructor
 public class SubmissionController {
 
-    private final RabbitTemplate rabbitTemplate;
+   
 
     private final SubmissionService submissionService;
 
     @PostMapping
-    public Submission submitCode(@RequestParam String username, @RequestBody String code) {
-        // Gọi service xử lý: Lưu DB -> Gửi RabbitMQ
-        return submissionService.createSubmission(username, code);
+    public Submission submitCode(@RequestParam String username,@RequestParam Long problemId, @RequestBody String code) {
+
+        return submissionService.createSubmission(username, problemId, code);
     }
 
-    // Thêm API này để bạn có thể kiểm tra kết quả sau khi chấm
+   
     @GetMapping("/{id}")
     public Submission getSubmission(@PathVariable Long id) {
         return submissionService.getSubmissionById(id); 
-        // (Bạn nhớ thêm hàm getById này vào SubmissionService nhé)
+        
     }
 }
