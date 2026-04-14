@@ -1,7 +1,7 @@
 package com.example.submissionservice.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
+
 import org.springframework.web.bind.annotation.*;
 
 import com.example.submissionservice.entity.Submission;
@@ -12,20 +12,18 @@ import com.example.submissionservice.service.SubmissionService;
 @RequiredArgsConstructor
 public class SubmissionController {
 
-   
-
     private final SubmissionService submissionService;
 
     @PostMapping
-    public Submission submitCode(@RequestParam String username,@RequestParam Long problemId, @RequestBody String code) {
+    public Submission submitCode(@RequestHeader("X-Username") String username, @RequestParam Long problemId,
+            @RequestBody String code) {
 
         return submissionService.createSubmission(username, problemId, code);
     }
 
-   
     @GetMapping("/{id}")
     public Submission getSubmission(@PathVariable Long id) {
-        return submissionService.getSubmissionById(id); 
-        
+        return submissionService.getSubmissionById(id);
+
     }
 }
