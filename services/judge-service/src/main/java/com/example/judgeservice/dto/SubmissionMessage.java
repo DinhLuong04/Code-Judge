@@ -10,6 +10,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class SubmissionMessage implements Serializable {
     private Long submissionId;
+    private Long problemId;
     private String code;
     private String status;
     private String errorDetail;
