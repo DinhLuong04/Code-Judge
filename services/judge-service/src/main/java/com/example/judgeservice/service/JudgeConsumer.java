@@ -26,7 +26,7 @@ public class JudgeConsumer {
     private final ObjectMapper objectMapper;
 
     
-    private final String PROBLEM_SERVICE_URL = "http://localhost:8080/api/problems/internal/";
+    private final String PROBLEM_SERVICE_URL = "http://problem-service/api/problems/internal/";
 
     @RabbitListener(queues = RabbitMQConfig.SUBMISSION_QUEUE)
     public void receiveSubmission(SubmissionMessage message) {
